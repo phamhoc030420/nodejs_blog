@@ -13,8 +13,6 @@ const route = (app) => {
     //     res.render('search');
     // });
 
-
     app.use('/', siteRouter);
-
-}
+};
 module.exports = route;

@@ -1,4 +1,3 @@
-
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
@@ -8,16 +7,21 @@ const port = 3000;
 const route = require('./routes');
 app.use(express.static(path.join(__dirname, 'public')));
 //dung cho POST
-app.use(express.urlencoded({
-    extended: true
-}));
+app.use(
+    express.urlencoded({
+        extended: true,
+    }),
+);
 app.use(express.json());
 //http logger
 // app.use(morgan('combined'));
 //template engine
-app.engine('hbs', engine({
-    extname: '.hbs'
-}));
+app.engine(
+    'hbs',
+    engine({
+        extname: '.hbs',
+    }),
+);
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources\\views'));
 //Routes init
