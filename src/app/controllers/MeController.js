@@ -4,6 +4,8 @@ class MeController {
 
     //[GET] /me/stored/courses
     storedCourses(req, res, next) {
+        // const PAGE_SIZE = 2;
+        // var page = req.query.page;
         let courseQuery = Course.find({});
         if (req.query.hasOwnProperty('_sort')) {
             courseQuery = courseQuery.sort({
@@ -11,12 +13,11 @@ class MeController {
             });
         }
 
-
         Promise.all([courseQuery, Course.countDocumentsDeleted()])
             .then(([courses, deletedCount]) =>
                 res.render('me/stored-courses', {
                     deletedCount,
-                    courses: mutipleMongoseToObject(courses)
+                    courses: mutipleMongoseToObject(courses),
                 }),
 
             )
