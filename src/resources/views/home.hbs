@@ -1,4 +1,4 @@
-<div class="mt-4">
+<div class="mt-4" style="overflow-y: scroll;height:760px;overflow-x:hidden;">
     <div class="row">
         {{#each courses}}
         <div class="col-sm-6 col-lg-4">
@@ -11,7 +11,7 @@
                         <h5 class="card-title">{{this.name}}</h5>
                     </a>
                     <p class="card-text">{{this.description}}</p>
-                    <a href="#" class="btn btn-primary">Go To</a>
+                    <a href="/courses/{{this.slug}}" class="btn btn-primary">Go To</a>
                 </div>
             </div>
         </div>
